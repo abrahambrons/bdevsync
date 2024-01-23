@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+bdevsync.access_bdev_sync_model,access_bdev_sync_model,bdevsync.model_bdev_sync_model,base.group_user,1,1,1,1

@@ -1,0 +1,40 @@
+<odoo>
+
+    <record id="view_sync_form" model="ir.ui.view">
+        <field name="name">bdev.sync.model.form</field>
+        <field name="model">bdev.sync.model</field>
+        <field name="arch" type="xml">
+            <form>
+                <button name="sync" string="Sync" type="object"/>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sync_tree" model="ir.ui.view">
+        <field name="name">bdev.sync.model.tree</field>
+        <field name="model">bdev.sync.model</field>
+        <field name="arch" type="xml">
+            <tree string="Status">
+                <field name="id"/>
+                <field name="create_date"/>
+                <field name="status"/>
+                <field name="log" />                
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_sync_form" model="ir.actions.act_window">
+        <field name="name">All Syncronizations</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">bdev.sync.model</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem   id="menu_sync_new"
+                name="Manual Sync"
+                parent="menu_sync_root"
+                action="action_sync_form"
+                sequence="10"/>
+
+</odoo>

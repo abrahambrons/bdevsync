@@ -1,0 +1,7 @@
+<odoo>
+    <menuitem   id="menu_sync_root"
+                name="Sync14Odoo"
+                sequence="10"/>
+    
+
+</odoo>

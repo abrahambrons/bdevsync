@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="res_config_settings_view_form" model="ir.ui.view">
+            <field name="name">res.config.settings.view.bdev</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form" position="inside">
+                    <div class="app_settings_block" data-string="bdev" id="sync14odoo" string="bdev" data-key="sync14odoo">
+                        <h2>Sync14Odoo</h2>
+                        <div class="row mt16 o_settings_container" id="bdev_setting">
+                            <div class="col-12 col-lg-6 o_setting_box">
+                                <div class="o_setting_left_pane"/>
+                                <div class="o_setting_right_pane">
+                                    <span class="text-muted content-group mt16">User</span>
+                                    <field name="user_id"/><br/>
+                                    <label for="interval_number" string="Execute Every"/>
+                                    <div>
+                                        <field name="interval_number" class="oe_inline"/>
+                                        <field name="interval_type" class="oe_inline"/>
+                                    </div><br/>
+                                    <span class="text-muted content-group mt16">Active?</span>
+                                    <field name="active" widget="boolean_toggle"/><br/>
+                                    <span class="text-muted content-group mt16">Set Execution Date</span>
+                                    <field name="nextcall"/><br/>
+                                    <span class="text-muted content-group mt16">Number of Calls</span>
+                                    <field name="numbercall"/><br/>
+                                    <span class="text-muted content-group mt16">Priority</span>
+                                    <field name="priority"/><br/>
+                                    <span class="text-muted content-group mt16">Repeat missed</span>
+                                    <field name="doall"/><br/>
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <span class="text-muted content-group mt16">username</span>
+                                    <field name="username" class="text-center oe_inline" />
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <span class="text-muted content-group mt16">password</span>
+                                    <field name="password" class="text-center oe_inline" />
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <span class="text-muted content-group mt16">url</span>
+                                    <field name="url" class="text-center oe_inline" />
+                                </div>
+                                <div class="o_setting_right_pane">
+                                    <span class="text-muted content-group mt16">db</span>
+                                    <field name="db" class="text-center oe_inline" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="bdev_config_settings_action" model="ir.actions.act_window">
+            <field name="name">Settings</field>
+            <field name="res_model">res.config.settings</field>
+            <field name="view_id" ref="res_config_settings_view_form"/>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+            <field name="context">{'module' : 'bdev', 'bin_size': False}</field>
+        </record>
+
+        <menuitem   id="sync_config_settings_menu"
+                    name="Settings"
+                    parent="menu_sync_new"
+                    sequence="0"
+                    action="bdev_config_settings_action"
+                    groups="base.group_system"/>
+    </data>
+</odoo>

@@ -1,0 +1,15 @@
+<odoo>
+    <data>
+        <record id="cron_sync14odoo" model="ir.cron">
+            <field name="name">Sync14Odoo</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field name="doall" eval="False"/>
+            <field name="model_id" ref="model_bdev_sync_model"/>
+            <field name="state">code</field>
+            <field name="code">model.sync()</field>
+        </record>
+    </data>    
+</odoo>
